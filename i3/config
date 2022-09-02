@@ -55,6 +55,7 @@ bindsym $mod+Return exec i3-sensible-terminal
 # kill focused window
 bindsym $mod+Shift+q kill
 
+
 # lock screen
 bindsym $mod+Shift+x exec i3lock -n -c d8dee9
 #bindsym $mod+Shift+x exec dm-tool lock 
@@ -119,8 +120,8 @@ bindsym $mod+a focus parent
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-# set $ws1 "1:ブラウザ  "
-# set $ws2 "2:ハッキング  "
+# set $ws1 "1:ブラウザ  "
+# set $ws2 "2:ハッキング  "
 # set $ws3 "3:ファイル  "
 # set $ws4 "4:画面二  "
 # set $ws5 "5: 連絡   "
@@ -152,6 +153,10 @@ bindsym $mod+8 workspace number $ws8
 bindsym $mod+9 workspace number $ws9
 bindsym $mod+0 workspace number $ws10
 
+# next/previous workspace
+bindsym $mod+grave workspace next
+bindsym $mod+Shift+grave workspace prev 
+
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number $ws1
 bindsym $mod+Shift+2 move container to workspace number $ws2
@@ -168,30 +173,29 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 bindsym $mod+Shift+greater move workspace to output right
 bindsym $mod+Shift+less move workspace to output left
 
-
 # assign applicationdeeporanges to workspace
 assign [class="Firefox-esr"] $ws1
-#assign [class="Chromium"] $ws1
-#assign [class="Tor Browser"] $ws1
 assign [class="Codium"] $ws2
 assign [class="jetbrains-pycharm-ce"] $ws2
-assign [class="Thunar"] $ws3
-assign [class="Baobab"] $ws3
-assign [class="TeamViewer"] $ws4
-assign [class="Microsoft Teams - Preview"] $ws5
-assign [class="telegram-desktop"] $ws5
-assign [class="discord"] $ws5
-assign [class="thunderbird"] $ws5
-assign [class="libreoffice"] $ws6
+assign [class="Thunar"] $ws4
+assign [class="Baobab"] $ws4
+assign [class="MongoDB Compass"] $ws5
+assign [class="Postman"] $ws5
 assign [class="calibre"] $ws6
-assign [class="lutris"] $ws7
-assign [class="Steam"] $ws7
+assign [class="libreoffice"] $ws6
+assign [class="Microsoft Teams - Preview"] $ws7
+assign [class="telegram-desktop"] $ws7
+assign [class="discord"] $ws7
+assign [class="thunderbird"] $ws7
+# assign [class="lutris"] $ws7
+# assign [class="Steam"] $ws7
 assign [class="Quodlibet"] $ws8
 assign [class="Gnome-pomodoro"] $ws8
-assign [class="Xfce4-power-manager-settings"] $ws9
-assign [class="Synaptic"] $ws9
-assign [class="Xfce4-taskmanager"] $ws10
-assign [class="Psensor"] $ws10
+assign [class="spotify"] $ws8
+assign [class="Xfce4-taskmanager"] $ws9
+assign [class="Psensor"] $ws9
+assign [class="Xfce4-power-manager-settings"] $ws10
+assign [class="Synaptic"] $ws10
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -250,24 +254,30 @@ mode "move" {
 
 # colors
 
-set $bg-color            #e5e9f0
-set $focused-bg-color 	 #81a1c1 
-set $inactive-bg-color   #e5e9f0
-set $text-color          #eceff4 
-set $urgent-text-color   #eceff4 
+# light theme
+set $focused-bg-color   #EAB700 
+set $inactive-bg-color   #e5e9f0 
+set $text-color          #ffffff 
 set $inactive-text-color #869296 
-set $urgent-bg-color     #bf616a 
-set $indicator           #FF91A4 
-
+# dark theme
+# set $focused-bg-color   #eceff4
+# set $inactive-bg-color   #20242d
+# set $text-color          #000000 
+# set $inactive-text-color #869296 
+# universal
+set $urgent-bg-color     #C82828
+set $urgent-text-color   #ffffff 
+set $indicator           #2e9ef4 
 
 # window colors
-#                       border              background         text                 indicator
-client.focused          $focused-bg-color   $focused-bg-color  $text-color          $indicator 
-client.unfocused        $inactive-bg-color  $inactive-bg-color $inactive-text-color $indicator 
-client.focused_inactive $inactive-bg-color  $inactive-bg-color $inactive-text-color $indicator 
-client.urgent           $urgent-bg-color    $urgent-bg-color   $urgent-text-color   $indicator 
+#                       border              background          text                 indicator
+client.focused          $focused-bg-color   $focused-bg-color   $text-color          $indicator 
+client.focused_inactive $inactive-bg-color  $inactive-bg-color  $text-color          $indicator 
+client.unfocused        $inactive-bg-color  $inactive-bg-color  $inactive-text-color $indicator 
+client.focused_inactive $inactive-bg-color  $inactive-bg-color  $inactive-text-color $indicator 
+client.urgent           $urgent-bg-color    $urgent-bg-color    $urgent-text-color   $indicator 
 
-# #exec_always --no-startup-id /home/xuantung/.config/i3/polybar/launch.sh
+
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 # bar {
@@ -298,9 +308,11 @@ bindsym Control+Super_R exec --no-startup-id xfce4-screenshooter -w
 bindsym Control+Shift+Super_R exec --no-startup-id xfce4-screenshooter -r 
 
 # wallpaper
-exec_always feh --bg-fill /home/xuantung/.local/share/backgrounds/sushi/sushi_pink-switch.jpg 
+# exec_always feh --bg-fill / /home/xuantung/Pictures/wallpapers/tory-miles-render.jpg
+exec_always feh --bg-fill / /home/xuantung/Pictures/wallpapers/yucong-tang-4.jpg
 
 # startup
+exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 #policykit 
 exec_always --no-startup-id ibus-daemon #input methods
 exec_always --no-startup-id /usr/lib/geoclue-2.0/demos/agent # for redshift to run
 exec --no-startup-id redshift-gtk  #limit bluelight, prevent eyestrain
@@ -310,9 +322,8 @@ exec --no-startup-id thunderbird #mail client
 exec_always --no-startup-id picom #compositor
 exec --no-startup-id xfce4-clipman #clipboard
 exec --no-startup-id goldendict #dictionary
-exec --no-startup-id xmodmap ~/.Xmodmap #keyboard
-    # imwheel
-exec_always killall imwheel
+# exec --no-startup-id xmodmap ~/.Xmodmap #keyboard
+exec_always killall imwheel #imwheel
 exec_always imwheel
 
 
@@ -328,7 +339,7 @@ smart_gaps on
 smart_borders on
 
 # Set inner/outer gaps
-gaps inner 14
+gaps inner 6 
 gaps outer 0
 
 # Gaps mode

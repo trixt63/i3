@@ -30,25 +30,27 @@
 - Theme: Pop nord.
 - Icons: Papirus nord purple.
 - Gogh terminal: Nordic light.
-![img](/i3-nord.png)
+![img](./i3-nord.png)
 
 ### 2. Lunaria
-![img](/i3-lunaria.png)
+![img](./i3-lunaria.png)
 
 ### 3. Sushi
 - Theme: Flat-Remix-GTK-Black (or Orange).
 - Icons: Papirus yaru.
-- Gogh terminal: Hemisu Light.
-![img](/i3-sushi.png)
+- Terminal: Ayu Light.
+- Wallpaper: ```backgrounds/sushi/sushi.jpg```
+![img](./i3-sushi.png)
 
 ### 4. Nord w/ Pink salmon
-![img](/i3-nord-sushi-with-polybar.png)
+- 
+![img](./i3-nord-sushi-with-polybar.png)
 
 ### 5. Space red
-![img](/i3-space-red.png)
+![img](./i3-space-red.png)
 
 Space Light
-![img](/i3-light.png)
+![img](./i3-light.png)
 
 
 

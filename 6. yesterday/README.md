@@ -1,15 +1,11 @@
-# I3 Space
-- GTK Theme: Flat-Remix Grey (light) or Flat-Remix White (dark)
-- Icons: Papirus icons
-- Terminal color scheme: Tomorrow (light) or SpaceGray (dark) from [Gogh](https://gogh-co.github.io/Gogh/)
-- Font: Lato
-
+# I3 Tommorow 
 
 ## Presiquities
 
 - Install the following packages:
 
 	- **feh**: setting background images.
+	- **[Gogh](https://gogh-co.github.io/Gogh/)**: to change terminal theme.
 	- **lxappearance**: setting the fonts, and the gtk themes.
 	- **brightnessctl**: controlling the brightness keys.
 	- **Polybar**: i3blocks alternative. Looks much nicer, also support customization better.
@@ -17,15 +13,12 @@
 	- **[maestrogerardo's i3-gaps-deb](https://github.com/maestrogerardo/i3-gaps-deb)**: Debian does not support i3-gaps. Use this repo to setup i3-gaps for your Debian machine.
 	- **[Papirus Folders](https://github.com/PapirusDevelopmentTeam/papirus-folders)** as well as **[Papirus Nord](https://github.com/Adapta-Projects/Papirus-Nord)**: for icons themes. You can use whatever icons set you want though.
 
-## Usage 
+## Folders
 
 - Put the contents of `backgrounds` and `themes` into the respective folders in `~/.local/share/`.
 - Put the contents of `i3`, `rofi` and `polybar` into the repective folders in `~/.config/`.
 
 ## PREVIEW 
 
-Light theme
-![img](./space-light.png)
-
-Dark theme
-![img](./space-dark.png)
+- Gogh terminal: Tomorrow.
+![img](./i3-yesterday.png)
